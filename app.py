@@ -29,7 +29,8 @@ def convert(message: telebot.types.Message):
         values = message.text.split(' ')
 
         if len(values) != 3:
-            raise ConversionExeption('Слишком много параметров.')
+            raise ConversionExeption('Ошибка в количестве параметров. '
+                                     'Введите базовую валюту, валюту для сравнения и количество. Пример: рубль доллар 1')
 
         quote, base, amount = values
         total_base = ValueConverter.convert(quote, base, amount)
